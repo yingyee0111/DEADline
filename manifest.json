@@ -1,0 +1,22 @@
+{
+	"name": "DEADline",
+	"version": "1.0",
+	"manifest_version": 2,
+	"content_scripts": [
+		{
+			"matches": ["https://www.gradescope.com/courses/*"],
+			"js": ["gradescope.js"]
+		},
+		{
+			"matches": ["https://canvas.cmu.edu/"],
+			"js": ["canvas.js"]
+		}
+	],
+	"browser_action": {
+		"default_title": "DEADline"
+	},
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"permissions": ["tabs"]
+}
