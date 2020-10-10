@@ -1,6 +1,6 @@
 window.addEventListener('load', function () {
 
-var a =  document.getElementsByClassName("PlannerApp large")[0].getElementsByClassName("Day-styles__root planner-day");
+var a =  document.querySelector("div.StudentPlanner__Container > div").getElementsByClassName("Day-styles__root planner-day");
 var assignments = {};
 var class_declared = [];
 var i;
@@ -31,9 +31,12 @@ var m;
 for (m = 0; m < class_declared.length; m++){
 	if (assignments[class_declared[m]].length > 0) {
 		var data = [class_declared[m], assignments[class_declared[m]]];
-		chrome.runtime.sendMessage({
-			url: class_declared[m],
-			data: data
+		var obj = {};
+		obj[class_declared[m]] = data;
+		console.log(obj);
+		chrome.storage.local.set(obj, function(){
+			// Data saved to local storage
+			// Overrides every time page loaded
 		})
 	}	
 }

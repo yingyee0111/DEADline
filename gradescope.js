@@ -16,9 +16,15 @@ for (i = 0; i < a.length; i++) {
     }
 }
 
+var url = window.location.href;
 var data = [className, assignments];
 
-chrome.runtime.sendMessage({
-  url: window.location.href,
-  data: data
-})
+var obj = {};
+obj[url] = data;
+
+console.log(obj);
+
+chrome.storage.local.set(obj, function(){
+	// Data saved to local storage
+	// Overrides every time page loaded
+});

@@ -1,6 +1,6 @@
 {
 	"name": "DEADline",
-	"version": "1.0",
+	"version": "1.1",
 	"manifest_version": 2,
 	"content_scripts": [
 		{
@@ -18,5 +18,8 @@
 	"background": {
 		"scripts": ["background.js"]
 	},
-	"permissions": ["tabs"]
+	"permissions": [
+		"tabs",
+		"storage"
+	]
 }
